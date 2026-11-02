@@ -1,7 +1,7 @@
 /* ==================================================
  *  GLOBALS AND PLUGINS
  * ================================================== */
-const repoDir = "/tokunonae-cell/Devlog-CSS-template?tab=readme-ov-file";
+const repoDir = "/Devlog-CSS-template/";
 
 
 /* ==================================================
