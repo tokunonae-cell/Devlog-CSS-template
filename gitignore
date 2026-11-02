@@ -1,0 +1,14 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Eleventy build output
+_site/
+
+# OS junk
+.DS_Store
+
+# Editor / IDE
+.vscode/
+.idea/

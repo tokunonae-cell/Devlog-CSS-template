@@ -1,0 +1,5 @@
+<ul class="noList">
+    {% for post in (collections.posts) %}
+    <li><a class="cleanLink" href="#{{ post.data.title | lower }}">{{post.data.title}}</a></li>
+    {% endfor %}
+</ul>

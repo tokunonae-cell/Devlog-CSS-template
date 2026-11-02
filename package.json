@@ -1,0 +1,29 @@
+{
+  "name": "repo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "make-post": "node scripts/make-post.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:eleventy": "cross-env ELEVENTY_ENV=development npx @11ty/eleventy --serve",
+    "prod:eleventy": "cross-env ELEVENTY_ENV=production npx @11ty/eleventy",
+    "start": "npm run dev:eleventy",
+    "build": "npm run prod:eleventy",
+    "preview": "npm run build && npx serve _site --single --listen 3000",
+    "deploy": "npm run build && gh-pages -d _site"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "cross-env": "^10.1.0",
+    "gh-pages": "^6.3.0",
+    "sass": "^1.105.0"
+  }
+}

@@ -1,0 +1,10 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+
+{% from "macros/render-post.njk" import renderPost %}
+
+{% for post in (collections.posts) %}
+  {{ renderPost(post.data.title, post.url, post.data.date, post.data.tags, post.templateContent, true) }}
+{% endfor %}

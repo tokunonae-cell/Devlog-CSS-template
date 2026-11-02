@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8"/>
+    <title>{{ "Devlog | " ~ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | url }}">
+
+</head>
+<body>
+{% include "partials/header.njk" %}
+
+<div class="main">
+    <aside >
+        <h2 >Contents</h2>
+        {% include "partials/contents.njk" %}
+    </aside>
+    <main>{{ content | safe }}</main>
+</div>
+
+{% include "partials/footer.njk" %}
+
+<script src="{{ '/assets/js/scripts.js' | url }}"></script>
+</body>
+</html>

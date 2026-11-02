@@ -1,0 +1,17 @@
+{% macro renderPost(title, url, date, tags, content, showSnippet) %}
+<article>
+    <h1 id="{{- title | lower -}}">{{ title }}</h1>
+    {#  TODO: make dates work properly#}
+    <time datetime="{{ date }}">{{ date }}</time>
+    {% if tags %}
+    <ul class="tags">
+        {% for tag in tags %}
+        {% if tag != "post" %}
+        <li>{{ tag }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <div>{{ content | safe }}</div>
+</article>
+{% endmacro %}
