@@ -1,21 +1,26 @@
 :root[data-theme="light"] {
     --text: #201409;
+    --filter: invert(7%) sepia(8%) saturate(4380%) hue-rotate(347deg) brightness(98%) contrast(95%);
     --background: #f4eee8;
     --primary: #872f03;
-    --primlight: hsla(20, 96%, 27%, 0.812);
+    --primlight: hsla(20, 96%, 27%, 0.81);
     --secondary: #d3a25d;
     --accent: #aa8500;
 }
 
 :root[data-theme="dark"] {
     --text: #f4eee8;
+    --filter: invert(95%) sepia(40%) saturate(393%) hue-rotate(294deg) brightness(106%) contrast(91%);
     --background: #010104;
-    --primary: #740707;
-    --primlight: hsla(0, 89%, 24%, 0.614);
+    --primary: #980202;
+    --primlight: hsl(0 97% 30% / 0.6);
     --secondary: #d3a25d;
     --accent: #aa8500;
 }
 
+nav {
+    display: flex;
+}
 
 h1 {
     color: var(--primary);
@@ -64,8 +69,10 @@ a {
     color: var(--accent);
 }
 
-header {
-    background-color: var(--primary);
+.header {
+    border-color: var(--primary);
+    border-style: solid;
+    border-width: 10px;
     padding: 0 50px;
     margin: 0 0 3px 0;
     flex: 0 0 50vh;
@@ -78,23 +85,45 @@ footer {
 
 }
 
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+}
+
+.nav .logo, .nav .lightdark {
+    height: 4rem;
+    width: 4rem;
+}
+.nav-list{
+    margin: 0;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+}
+.nav .logo, .nav .lightdark, .nav-list {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
 .main {
     display: flex;
     color: var(--text);
 }
 
-.big {
-    color: var(--background);
-}
 
 .svg {
-    width: auto;
-    color: var(--text);
+    width: 40px;
+    height: 40px;
+    filter: var(--filter);
 }
 
 .button {
     /*background-color: var(--accent);*/
-    color: var(--background);
+    /*color: var(--background);*/
     padding: 16px;
     border-radius: 8px;
 }
