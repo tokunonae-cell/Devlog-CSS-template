@@ -11,27 +11,60 @@
 :root[data-theme="dark"] {
     --text: #f4eee8;
     --filter: invert(95%) sepia(40%) saturate(393%) hue-rotate(294deg) brightness(106%) contrast(91%);
-    --background: #010104;
+    --background: #150c09;
     --primary: #980202;
     --primlight: hsl(0 97% 30% / 0.6);
     --secondary: #d3a25d;
     --accent: #aa8500;
+}
+@media(min-width: 360px) {
+    .web{
+        grid-template: [row1-start] "nav" [row1-end][row2-start] "header" [row2-end][row3-start] "main" [row3-end][row4-start] "footer" [row4-end]/ 1fr;
+    }
+}
+
+@media(min-width: 1020px) {
+    .web{
+        grid-template: [row1-start] "nav nav" [row1-end][row2-start] "header header" [row2-end][row3-start] "contents main" [row3-end][row4-start] "footer footer" [row4-end]/ 1fr 4fr;
+    }
 }
 
 .web {
     align-items: start;
     display: grid;
     column-gap: 1rem;
-    margin: 0 auto;
+    /*margin: 0 1vw;*/
     padding: 0 clamp(1rem, 4vw, 2rem);
-    grid-template: [row1-start] "nav nav" [row1-end][row2-start] "header header" [row2-end][row3-start] "contents main" [row3-end][row4-start] "footer footer" [row4-end]/ 1fr 3fr;
-    grid-template-rows: [row1-start] auto [row1-end row2-start] auto [row2-end row3-start] auto [row3-end row4-start] auto [row4-end];
-    grid-template-columns: 1fr 3fr;
-    grid-template-areas: "nav nav" "header header" "contents main" "footer footer";
+}
+
+.web > {
+    min-width: 0;
+}
+
+.web nav {
+    grid-area: nav;
+}
+
+.web .header {
+    grid-area: header;
+}
+.web aside {
+    grid-area: contents;
+}
+.web main{
+    grid-area: main;
+}
+.web footer {
+    grid-area: footer;
 }
 
 nav {
     display: flex;
+    position: sticky;
+    top: 0;
+    background: var(--background);
+    z-index: 2 ;
+    border-bottom: 10px solid var(--primary);
 }
 
 h1 {
@@ -47,20 +80,18 @@ img, video {
 }
 
 body {
-    display: flex;
-    flex-flow: column;
     background-color: var(--background);
     color: var(--text);
-
+    margin: 0;
+    padding: 0;
 }
 
 
 aside {
     background-color: var(--primlight);
     position: sticky;
-    align-self: flex-start;
-    top: 0;
-    flex: 0 0 20vh;
+    top: 3rem;
+    /*flex: 0 0 20vh;*/
     margin: 0 3px 0 0;
     height: max-content;
 }
@@ -84,17 +115,17 @@ a {
 .header {
     border-color: var(--primary);
     border-style: solid;
-    border-width: 10px;
+    border-width: 0 10px 10px 10px;
     padding: 0 50px;
     margin: 0 0 3px 0;
     flex: 0 0 50vh;
 }
 
 footer {
-    background-color: var(--primary);
+    background-color: var(--background);
     position: sticky;
     bottom: 0;
-
+    border-top: 5px solid var(--primary);
 }
 
 .nav {
